@@ -16,18 +16,18 @@ public class ObstacleCollect : MonoBehaviour
         {
             float minX = boxColliders[i].transform.position.x -
                          boxColliders[i].size.x*boxColliders[i].transform.lossyScale.x*0.5f;
-            float minZ = boxColliders[i].transform.position.y -
+            float minY = boxColliders[i].transform.position.y -
                          boxColliders[i].size.y*boxColliders[i].transform.lossyScale.y*0.5f;
             float maxX = boxColliders[i].transform.position.x +
                          boxColliders[i].size.x*boxColliders[i].transform.lossyScale.x*0.5f;
-            float maxZ = boxColliders[i].transform.position.y +
+            float maxY = boxColliders[i].transform.position.y +
                          boxColliders[i].size.y*boxColliders[i].transform.lossyScale.y*0.5f;
 
             IList<Vector2> obstacle = new List<Vector2>();
-            obstacle.Add(new Vector2(maxX, maxZ));
-            obstacle.Add(new Vector2(minX, maxZ));
-            obstacle.Add(new Vector2(minX, minZ));
-            obstacle.Add(new Vector2(maxX, minZ));
+            obstacle.Add(new Vector2(maxX, maxY));
+            obstacle.Add(new Vector2(minX, maxY));
+            obstacle.Add(new Vector2(minX, minY));
+            obstacle.Add(new Vector2(maxX, minY));
             Simulator.Instance.addObstacle(obstacle);
         }
     }
